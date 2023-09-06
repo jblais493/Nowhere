@@ -1,0 +1,643 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;==========================================================
+
+[bar/example]
+monitor = ${env:MONITOR:DP-0}
+width = 99.8%
+height = 35
+offset-x = 3
+offset-y = 3
+radius = 1
+fixed-center = true
+enable-ipc = true
+
+background = #004C566A
+foreground = #eceff4
+
+line-size = 3
+;line-color = #f00
+
+border-size = 0
+border-color = #eceff4
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+;----------------------------------------------------------
+;            F O N T S
+;----------------------------------------------------------
+
+;font-0 = "NotoSansMono Light Nerd Font Complete":pixelsize=13;1
+;font-0 = Saucecode Pro Nerd Font:style=semibold;pixelsize=20;1
+font-0 = Montserrat:style=medium:size=12;1
+;font-0 = JetBrainsMono Nerd Font:style=regular:pixelsize=11;1
+font-1 = Weather Icons:style=Regular:size=11;1
+font-2 = Sarasa Gothic HC:style=regular:pixelsize=16;1
+font-3 = Font Awesome 6 Free:style=Regular:pixelsize=12;1
+font-4 = Font Awesome 6 Free:style=Solid:pixelsize=12;1
+font-5 = Font Awesome 6 Brands:style=Regular:pixelsize=12;1
+font-6 = Material Icons:style=Regular:pixelsize=12;1
+font-7 = PowerlineSymbols:size=22;4
+
+;----------------------------------------------------------
+;            M O D U L E S
+;----------------------------------------------------------
+
+modules-left = bspwm xwindow 
+modules-center = date
+modules-right = mpd spotify spc weather arrow1 memory temperature arrow2 crypto pulseaudio arrow3 eth bluetooth battery powermenu
+
+tray-position = none
+tray-padding = 1
+;tray-background = #0063ff
+
+wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+;format-foreground = #2e3440
+format-padding = 3
+
+[module/bspwm]
+type = internal/bspwm
+
+format-font = 3
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+fuzzy-match = true
+
+format = <label-state>
+;<label-mode>
+
+label-dimmed-foreground = #ffffff
+
+label-dimmed-occupied = %icon%
+label-dimmed-occupied-foreground = #00eceff4
+label-dimmed-occupied-padding = 3
+
+label-dimmed-empty = %icon%
+label-dimmed-empty-foreground = #eceff4
+label-dimmed-empty-padding = 3
+
+label-focused = %icon%
+label-focused-foreground = #eceff4
+label-focused-background = #00eceff4
+label-focused-underline = #CCBB90
+label-focused-padding = 3
+
+label-occupied = %icon%
+label-occupied-foreground = #97eceff4
+label-occupied-background= #004C566A
+label-occupied-padding = 3
+
+label-urgent = %icon%
+label-urgent-foreground = #eceff4
+label-urgent-background = #bf616a
+label-urgent-padding = 3
+
+label-empty = %icon%
+label-empty-foreground = #40eceff4
+label-empty-background= #002e3440
+label-empty-padding = 3
+
+ws-icon-0 = 1;一
+ws-icon-1 = 2;二
+ws-icon-2 = 3;三
+ws-icon-3 = 4;四
+ws-icon-4 = 5;五
+ws-icon-5 = 6;六
+ws-icon-6 = 7;七
+ws-icon-7 = 8;八
+ws-icon-8 = 9;九
+;                 
+
+[module/bspwmmode]
+type = internal/bspwm
+format = <label-mode>
+format-font = 0
+
+label-monocle = Monocle
+label-monocle-foreground = #2e3440
+label-monocle-background = #eceff4
+label-tiled = Tiled
+label-tiled-foreground = #2e3440
+label-tiled-background = #eceff4
+label-fullscreen = Fullscreen
+label-fullscreen-foreground = #2e3440
+label-fullscreen-background = #eceff4
+label-floating = Floating
+label-floating-foreground = #2e3440
+label-floating-background = #eceff4
+label-pseudotiled = Pseudo
+label-pseudotiled-foreground = #2e3440
+label-pseudotiled-background = #eceff4
+label-locked = " "
+label-locked-foreground = #ffffff
+label-sticky = " "
+label-sticky-foreground = #ffffff
+label-private = " "
+label-private-foreground = #ffffff
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/bluetooth.sh
+interval = 2
+click-left = exec blueberry
+click-right = exec ~/.config/polybar/scripts/toggle_bluetooth.sh
+format-padding = 1
+format-background = #922e3440
+format-foreground = #eceff4
+
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/polybar-forecast-linux-x86_64
+exec-if = ping openweathermap.org -c 1
+click-left = exec ~/.config/polybar/scripts/weather.sh
+interval = 600
+label-font = 2
+format-background = #90eceff4
+format-foreground = #2e3440
+format-padding = 1
+
+[module/mpd]
+type = internal/mpd
+label-song-foreground = ${colors.primary}
+format-online =  <icon-stop> <label-song>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 50
+label-song-ellipsis = true
+
+;[module/mpd]
+;type = internal/mpd
+;format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
+;
+;icon-prev = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
+;
+;label-song-maxlen = 25
+;label-song-ellipsis = true
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.secondary}
+format = <label> <ramp-load>
+label = %percentage:2%%
+
+; Spacing between individual per-core ramps
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
+
+[module/memory]
+type = internal/memory
+format-font = 5
+interval = 2
+format-padding = 1
+format-prefix = " "
+;format-prefix-foreground = #2e3440
+format-prefix-background = #004C566A
+format-background = #004C566A
+format = <label>
+;format-foreground = #2e3440
+label = %gb_used%
+
+; Only applies if <ramp-used> is used
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
+ramp-used-foreground = ${colors.secondary}
+ramp-used-background = #004c566a
+
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 3.0
+format-connected-background = #972e3440
+format-connected-padding = 1
+
+format-connected = <ramp-signal> <label-connected>
+
+; Default: %ifname% %local_ip%
+label-font = 6
+label-connected = %essid%
+;label-connected-foreground = #99eceff4
+
+; Default: (none)
+label-disconnected = not connected
+label-disconnected-foreground = #20eceff4
+format-disconnected-background = #903b4252
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+; 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+ramp-signal-6 = 
+ramp-signal-7 = 
+
+
+ramp-signal-padding = 1
+ramp-signal-foreground = #99eceff4
+
+[module/eth]
+type = internal/network
+interface = enp5s0
+interval = 3.0
+
+format-connected-background = #972e3440
+format-connected-prefix = "   "
+;format-connected-prefix-foreground = #99eceff4
+;format-connected-foreground = #99eceff4
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =
+;date-alt = " %Y-%m-%d"
+date-alt = " %d"
+
+time = - %A, %d %B | %H:%M -
+time-alt = - %H:%M -
+
+format-prefix = 
+format-prefix-foreground = #2e3440
+;format-foreground = #2e3440
+label-font = 1
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+;sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+format-volume = <ramp-volume><label-volume>
+
+label-font = 2
+label-volume = %percentage%%
+label-volume-padding = 1
+label-padding = 1
+;label-volume-foreground = #2e3440
+label-volume-background = #903b4252
+format-ramp-volume-0-background = #903b4252
+format-ramp-volume-1-background = #903b4252
+format-ramp-volume-2-background = #903b4252
+
+label-muted = muted
+label-muted-foreground = ${colors.foreground}
+label-muted-background = #903b4252
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+;ramp-volume-foreground = #2e3440
+ramp-volume-background = #903b4252
+ramp-volume-padding = 1
+
+[module/battery]
+type = internal/battery
+format-charging-background = #972e3440
+format-full-background = #972e3440
+format-discharging-background = #972e3440
+format-charging-padding = 1
+;format-discharging-padding = 1
+format-full-padding = 1
+
+; This is useful in case the battery never reports 100% charge
+full-at = 95
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+; Disable polling by setting the interval to 0.
+; Default: 5
+;poll-interval = 5
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+;label-prefix = 
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging> |
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging> |
+; label-discharging = %percentage%
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Fully charged
+
+; Only applies if <ramp-capacity> is used
+;
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-padding-right = 2
+ramp-capacity-padding-left = 1
+ramp-capacity-0-foreground= #bf616a
+
+; Only applies if <bar-capacity> is used
+;bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+
+;
+
+[module/temperature]
+type = internal/temperature
+;thermal-zone = 0
+interval = 0.5
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
+warn-temperature = 70
+;format-foreground = #2e3440
+format-background = #004C566A
+format-padding = 1
+
+;<ramp>
+format = <label>
+format-prefix = " "
+format-warn = <ramp><label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #bf616a
+label-warn-background = #004C566A
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #3b4252
+ramp-background = #004C566A
+ramp-padding = 1
+
+[module/powermenu]
+type = custom/menu
+format-background = #902e3440
+format-foreground = #bf616a
+format-padding = 2
+format-font = 5
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = #e06c75
+label-open-margin-right= 2.5
+label-close =  cancel
+label-close-foreground = #e06c75
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-font = 5
+;format-foreground = #90eceff4
+format-prefix = "   "
+format = <label>
+exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}  '
+;control players (optional)
+click-left = playerctl --player=spotify play-pause
+click-right = playerctl --player=spotify next
+click-middle = playerctl --player=spotify previous
+
+;----------------------------------------------------------
+;            T E X T    M O D U L E S
+;----------------------------------------------------------
+
+[module/spc]
+type = custom/text
+content = "%{T8}%{T-}"
+content-foreground = #90eceff4
+
+[module/arrow1]
+type = custom/text
+content = "%{T8}%{T-}"
+;content-foreground = #757b87
+content-foreground = #4e6167
+content-background = #90eceff4
+
+[module/arrow2]
+type = custom/text
+content = "%{T8}%{T-}"
+content-foreground = #903b4252
+content-background = #004C566A
+
+[module/arrow3]
+type = custom/text
+content = "%{T8}%{T-}"
+content-foreground = #502e3440
+content-background = #903b4252
+
+;[module/arrowright]
+;type = custom/text
+;content = "%{T8}%{T-}"
+;content-foreground = #2e3440
+;content-background = #eceff4
+
+;[module/arrowright2]
+;type = custom/text
+;content = "%{T8}%{T-}"
+;content-foreground = #eceff4
+;content-background = #004C566A
+
+[module/battery-combined-udev]
+type = custom/script
+exec = ~/.config/polybar/scripts/battery-combined-udev.sh
+tail = true
+format-charging-background = #902e3440
+format-full-background = #902e3440
+format-discharging-background = #902e3440
+format-charging-padding = 1
+;format-discharging-padding = 1
+format-full-padding = 1
+
+[module/crypto]
+format-background = #903b4252
+format-padding = 2
+;format-foreground = #2e3440
+type = custom/script
+interval = 300
+exec = /home/josh/.config/polybar/crypto.py

@@ -1,0 +1,21 @@
+# configuration file for betterlockscreen
+
+loginbox=002e3440
+bgcolor=002e3440
+insidecolor=00000000
+ringcolor=ffffffff
+keyhlcolor=d23c3dff
+bshlcolor=d23c3dff
+separatorcolor=00000000
+insidevercolor=00000000
+insidewrongcolor=d23c3dff
+ringvercolor=ffffffff
+ringwrongcolor=ffffffff
+verifcolor=ffffffff
+font="Montserrat"
+timecolor=ffffffff
+datecolor=ffffffff
+time_format="%H:%M"
+loginbox=00000066
+locktext="Enter your password"
+layoutcolor=00000000

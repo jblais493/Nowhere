@@ -1,0 +1,51 @@
+#! /bin/sh
+
+sxhkd &
+dunst &
+mpd &
+udiskie &
+#signal-desktop & element-desktop &
+#lxappearance &
+#thunderbird &
+# ntfd &
+nitrogen --restore &
+emacs --daemon &
+
+xsetroot -cursor_name left_ptr &
+~/.config/polybar/launch.sh
+picom &
+wmname LG3D &
+
+bspc monitor DP-0 -d 1 2 3 4 5 6 7 8 9
+
+bspc config border_width        3 
+bspc config window_gap          3 
+bspc config border_radius       2
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side 
+bspc config pointer_follows_monitor true
+
+# Dicates where applications will open, on which workspace and if intially floated, tiled, etc.
+bspc rule -a thunderbird desktop='^4' state=tiled follow=off
+bspc rule -a Signal desktop='^6' state=tiled follow=off
+bspc rule -a Element desktop='^6' state=tiled follow=off
+
+bspc rule -a Screenkey manage=off
+# bspc rule -a KeePassXC state=floating 
+bspc rule -a Thunar state=floating
+bspc rule -a Emacs state=tiled
+bspc rule -a Alacritty state=floating rectangle=1000x700+1410+730
+bspc rule -a android-studio state=floating border=off follow=on
+
+bspc config focused_border_color "#eceff4"
+
+nitrogen --set-scaled /home/josh/Pictures/desktop.png
+
+bspc rule -a Alacritty:scratchy sticky=on state=floating rectangle=900x600+600+350
+# termite -c scratchterm &
+# bspc rule -a scratchterm sticky=on state=floating hidden=on rectangle=900x600+800+450

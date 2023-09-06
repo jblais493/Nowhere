@@ -1,0 +1,215 @@
+#######################################
+#       Basic BSPWM Controls          #
+#######################################
+
+# Reload sxhkd config files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Exit bspwm
+shift + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Close and kill
+alt + q 
+	bspc node -{c,k}
+
+# Lock screen
+ctrl + alt + l 
+    betterlockscreen -l dim
+
+#######################################
+#         Movement Controls           #
+#######################################
+
+# Toggle Tiled and Monocle view
+alt + shift + space 
+	bspc desktop -l next
+
+# Make gaps bigger/smaller 
+super + {equal,minus}
+  bspc config window_gap $(( $(bspc config window_gap) {-,+} 10 ))    
+
+# Rotate tree
+super + shift + {d,a}
+    bspc node @/ -C {forward,backward}
+
+# no gaps
+super + 0
+  bspc config window_gap 0
+
+# Focus on window
+alt + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# Alt tab functionality
+alt + Tab
+    bspc node -f next.local
+
+alt + shift + Tab
+    bspc node -f prev.local
+
+# Focus/swap windows by direction
+alt + shift + {h,j,k,l}
+	bspc node --swap {west,south,north,east}
+
+# Expand tiled space
+super + shift + {h,j,k,l}
+	bspc node {@west -r -10 0,@south -r +10 0,@north -r -10 0,@east -r +10 0}
+
+# Contract the tiled space
+super + shift + {h,j,k,l}
+    bspc node {@east -r -10 0,@north -r +10 0,@south -r -10 0,@west -r +10 0}
+
+# Toggle fullscreen of window
+alt + shift + f
+	bspc node --state \~fullscreen
+
+# Focus next/previous desktop
+alt + {1,2,3,4,5,6,7,8,9} 
+	bspc desktop -f {1,2,3,4,5,6,7,8,9}
+
+# Send and focus to next desktop 
+alt + shift + {1,2,3,4,5,6,7,8,9} 
+	bspc node -d {1,2,3,4,5,6,7,8,9}
+
+# Preselect in direction:
+super + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# cancel Preselection
+super + ctrl + space
+    bspc node -p cancel
+
+# Set window state
+alt + {t, shift + t, s}
+    bspc node -t {tiled,pseudo_tiled,floating}
+
+#######################################
+#       System Controls               #
+#######################################
+
+#Volume Up
+ctrl + shift + k
+    pactl -- set-sink-volume 0 +10%
+
+#Volume Down 
+ctrl + shift + j 
+    pactl -- set-sink-volume 0 -10%
+
+# Brightness Up
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+# Brightness Down
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+#######################################
+#       Rofi Controls                 #
+#######################################
+
+# run rofi and dmenu
+alt + space 
+    exec rofi -show drun
+
+alt + u
+    rofi -modi emoji -show emoji
+
+# Thunderbird
+alt + m
+    thunderbird
+
+# Run rofi pass
+alt + p
+    rofi-pass
+
+# Rofi find files
+super + space 
+    exec rofi  -show find -modi find:/mnt/TrueNAS;
+
+# Ffox Dev 
+alt + r
+    firefox-developer-edition
+
+
+alt + o 
+    alacritty -e fzf
+
+# Newsboat RSS Reader 
+alt + n
+    alacritty -e newsboat
+
+#######################################
+#       Program Specific Controls     #
+#######################################
+
+# Terminal
+alt + Return
+    alacritty
+
+# Emacs
+alt + e
+    emacsclient -c -a 'emacs'
+
+# my homepage
+alt + y
+    brave joshblais.com &
+
+# Brave 
+alt + w 
+    brave 
+
+
+# Print Screen 
+Print
+    gnome-screenshot -i   
+
+# Qutebrowser
+alt + c
+    qutebrowser 
+
+# Gotop 
+alt + d 
+    alacritty -e gotop
+
+# opens up Chat Programs 
+alt + i 
+    signal-desktop
+
+# opens up Audacity
+alt + a 
+    alacritty -e {arecord -f cd output.wav}
+
+# opens up gimp
+alt + g 
+    gimp 
+
+# open up Thunar
+alt + f 
+    thunar 
+
+alt + B
+    $HOME/.config/scripts/bookmarks/bookmarkthis
+
+alt + b
+    $HOME/.config/scripts/bookmarks/rofibookmark.sh
+
+#######################################
+#         PLAYER CONROLS              #
+#######################################
+
+# Spotify Next
+ctrl + shift + l
+    mpc next;\
+    playerctl --player=spotify next
+
+# Spotify Previous
+ctrl + shift + h
+    mpc prev;\
+    playerctl --player=spotify previous
+
+# Spotify pause
+ctrl + shift + p
+    mpc toggle;\
+    playerctl --player=spotify play-pause
