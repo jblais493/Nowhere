@@ -15,7 +15,7 @@ PDF Viewer: Zathura <br>
 
 Core Services:
 ```
-   yay -S bspwm emacs neovim sxhkd polybar rofi dunst ranger lf chromium thunderbird brave-bin qbittorrent qutebrowser signal-desktop telegram-desktop thunar etcher-bin lxappearance blueberry bluez bluez-utils pass nitrogen arandr redshift obs-studio alacritty zsh gimp mpv libreoffice zathura zathura-pdf-mupdf yt-dlp fzf docker docker-compose xclip newsboat betterlockscreen openrgb-bin rofi-pass authy playerctl cronie cmake tumbler ueberzug mongodb-bin mongodb-tools-bin mongodb-compass breeze-snow-cursor-theme nordic-theme paper-icon-theme thefuck zsh-theme-powerlevel10k python-adblock picom-jonaburg-git net-tools-debian-ifconfig spicetify-cli udiskie yarn trash-cli element-desktop gotop rofi-emoji tmux magic-wormhole onionshare aspell-en termdown scrot brillo texlive-full
+   yay -S bspwm emacs neovim sxhkd polybar rofi dunst ranger lf chromium thunderbird brave-bin qbittorrent qutebrowser signal-desktop telegram-desktop thunar etcher-bin lxappearance blueberry bluez bluez-utils pass nitrogen arandr redshift obs-studio alacritty zsh gimp mpv libreoffice zathura zathura-pdf-mupdf yt-dlp fzf docker docker-compose xclip newsboat betterlockscreen openrgb-bin rofi-pass authy playerctl cronie cmake tumbler ueberzug mongodb-bin mongodb-tools-bin mongodb-compass breeze-snow-cursor-theme nordic-theme paper-icon-theme thefuck zsh-theme-powerlevel10k python-adblock picom-jonaburg-git net-tools-debian-ifconfig spicetify-cli udiskie yarn trash-cli element-desktop gotop rofi-emoji tmux magic-wormhole onionshare aspell-en termdown scrot brillo texlive-full ripgrep
 ```
 
 Fonts:
