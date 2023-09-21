@@ -15,7 +15,7 @@ PDF Viewer: Zathura w/ MuPDF support <br>
 
 Core Services:
 ```
-   yay -S bspwm emacs neovim sxhkd polybar rofi dunst lf thunderbird qbittorrent firefox-developer-edition qutebrowser signal-desktop telegram-desktop thunar lxappearance blueberry bluez bluez-utils pass nitrogen arandr redshift obs-studio alacritty zsh gimp mpv libreoffice zathura zathura-pdf-mupdf yt-dlp fzf docker docker-compose xclip betterlockscreen rofi-pass playerctl cronie cmake tumbler breeze-snow-cursor-theme nordic-theme paper-icon-theme thefuck zsh-theme-powerlevel10k python-adblock picom-jonaburg-git udiskie yarn trash-cli gotop rofi-emoji tmux magic-wormhole onionshare aspell-en termdown scrot brillo texlive-full ripgrep ueberzug ghostscript ffmpeg graphicsmagick 
+   yay -S bspwm emacs neovim sxhkd polybar rofi dunst lf thunderbird qbittorrent firefox-developer-edition qutebrowser signal-desktop gajim telegram-desktop thunar lxappearance blueberry bluez bluez-utils pass nitrogen arandr redshift obs-studio alacritty zsh gimp mpv libreoffice zathura zathura-pdf-mupdf yt-dlp fzf docker docker-compose xclip betterlockscreen rofi-pass playerctl cronie cmake github-cli tumbler breeze-snow-cursor-theme nordic-theme paper-icon-theme thefuck zsh-theme-powerlevel10k python-adblock picom-jonaburg-git udiskie yarn trash-cli gotop rofi-emoji tmux magic-wormhole onionshare aspell-en termdown scrot brillo texlive-full ripgrep ueberzug ghostscript ffmpeg graphicsmagick 
 ```
 
 Fonts:

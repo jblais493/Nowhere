@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# use mpc&mpd or emacsclient&emms to play music
+
+# Grab artwork path from emacs script
+artwork_path=$(emacsclient --eval '(emms-cover-art-path)' | sed -e 's/^"//' -e 's/"$//')
+
+
+if [ -z "$1" ]; then
+    echo "Usage: music-player-client pre|next|toggle|random|show"
+    exit 1
+fi
+
+# Please uninstall mpc&mpd if using emms
+if command -v mpc &> /dev/null; then
+    case $1 in
+        prev )
+            mpc prev
+            ;;
+        next )
+            mpc next
+            ;;
+        toggle )
+            mpc toggle
+            ;;
+    esac
+elif command -v emacsclient &> /dev/null; then
+    case $1 in
+        prev )
+            emacsclient --eval '(emms-previous)'
+            ;;
+        next )
+            emacsclient --eval '(emms-next)'
+            ;;
+        toggle )
+            emacsclient --eval '(emms-pause)'
+            ;;
+        random )
+            emacsclient --eval '(progn (emms-shuffle) (emms-next))'
+            ;;
+        show )
+            # program like dunst can show the notification
+            notify-send -i "$artwork_path" "$(emacsclient --eval '(file-name-base (emms-show))')"
+            ;;
+    esac
+fi

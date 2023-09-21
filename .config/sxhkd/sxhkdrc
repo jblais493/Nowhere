@@ -16,7 +16,7 @@ alt + q
 
 # Lock screen
 ctrl + alt + l 
-    betterlockscreen -l dim
+    betterlockscreen -l dimblur
 
 #######################################
 #         Movement Controls           #
@@ -199,17 +199,25 @@ alt + b
 #         PLAYER CONROLS              #
 #######################################
 
+# Song info for EMMS
+ctrl + shift + i
+    $HOME/.config/scripts/music-player-client show
+
+
 # Spotify Next
 ctrl + shift + l
+    $HOME/.config/scripts/music-player-client next
     mpc next;\
     playerctl --player=spotify next
 
 # Spotify Previous
 ctrl + shift + h
+    $HOME/.config/scripts/music-player-client prev
     mpc prev;\
     playerctl --player=spotify previous
 
 # Spotify pause
 ctrl + shift + p
+    $HOME/.config/scripts/music-player-client toggle 
     mpc toggle;\
     playerctl --player=spotify play-pause
