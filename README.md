@@ -10,7 +10,7 @@ Bar: Polybar with custom weather script <br>
 Terminal: Alacritty <br>
 Editors: Doom Emacs and Neovim <br>
 Browser: Qutebrowser and Firefox Developer (Firefox as fallback)<br>
-File Manager: Thunar and ~~Ranger~~ lf <br>
+File Manager: ~~Ranger~~ lf (terminal) and Thunar (graphical)<br>
 PDF Viewer: Zathura w/ MuPDF support <br>
 
 Core Services:
