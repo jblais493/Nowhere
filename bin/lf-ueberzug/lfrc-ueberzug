@@ -147,5 +147,6 @@ map gn cd /mnt/TrueNAS
 map gr cd /mnt/TrueNAS/Revere/Revere LATEST
 map gc cd ~/.config 
 map gw cd /mnt/TrueNAS/org/roam/Writing
+map gN cd ~/Nowhere
 
 
