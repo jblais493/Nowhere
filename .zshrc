@@ -135,6 +135,7 @@ export PATH="$PATH:$HOME/go/bin"
 
 # Alias 2023
 alias py="python"
+alias elf="sudo nvim /usr/local/bin/lf-ueberzug/lf-ueberzug"
 alias lf="/usr/local/bin/lf-ueberzug/lf-ueberzug"
 alias p="sudo pacman"
 alias r='lf'
