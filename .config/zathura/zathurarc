@@ -12,7 +12,7 @@ map i recolor
 map p print
 set selection-clipboard clipboard
 map <C-i> recolor
-set default-fg "#FFFFFF"
-set default-bg rgba(39,44,54,0.9)
-set recolor-darkcolor "#FFFFFF"
-set recolor-lightcolor rgba(39,44,54,0.0)
+set default-fg "#ecdcbc"
+set default-bg rgba(41,49,54,0.8)
+set recolor-darkcolor "#ecdcbc"
+set recolor-lightcolor rgba(41,49,54,0.0)
