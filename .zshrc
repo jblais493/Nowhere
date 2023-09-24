@@ -260,6 +260,17 @@ eval $(thefuck --alias)
 SAVEHIST=1000  # Save most-recent 1000 lines
 HISTFILE=~/.zsh_history
 
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+  # `command` is needed in case `lfcd` is aliased to `lf`
+  cd "$(command lf -print-last-dir "$@")"
+}
+bindkey -s '^o' 'lfcd\n'
+
 # Icons for lf
 export LF_ICONS="\
 ln=🔗:\
@@ -351,10 +362,4 @@ fi=📄:\
 *.docx=📋:\
 *.ppt=🌠:\
 *.pptx=🌠:\
-/home/igor=🏡:\
-/home/igor/_disk=💿:\
-/home/igor/_mmc=💿:\
-/home/igor/_private=🌍:\
-/home/igor/_public=🌍:\
-/home/igor/_shared=🌐:\
 "
