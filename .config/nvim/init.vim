@@ -44,7 +44,7 @@ else
 endif
 
 set termguicolors
-colorscheme nord
+colorscheme everforest 
 let g:airline_theme='atomic' 
 " air-line
 let g:airline_powerline_fonts = 1

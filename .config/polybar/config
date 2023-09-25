@@ -21,7 +21,7 @@ fixed-center = true
 enable-ipc = true
 
 background = #004C566A
-foreground = #eceff4
+foreground = #a5ada9
 
 line-size = 3
 ;line-color = #f00
@@ -41,7 +41,7 @@ module-margin-right = 0
 
 ;font-0 = "NotoSansMono Light Nerd Font Complete":pixelsize=13;1
 ;font-0 = Saucecode Pro Nerd Font:style=semibold;pixelsize=20;1
-font-0 = Montserrat:style=medium:size=12;1
+font-0 = Montserrat:style=medium:size=10;1
 ;font-0 = JetBrainsMono Nerd Font:style=regular:pixelsize=11;1
 font-1 = Weather Icons:style=Regular:size=11;1
 font-2 = Sarasa Gothic HC:style=regular:pixelsize=16;1
@@ -57,7 +57,7 @@ font-7 = PowerlineSymbols:size=22;4
 
 modules-left = bspwm xwindow 
 modules-center = date
-modules-right = mpd spotify spc weather arrow1 memory temperature arrow2 crypto pulseaudio arrow3 eth bluetooth battery powermenu
+modules-right = mpd spotify spc weather arrow1 memory temperature arrow2 crypto pulseaudio arrow3 eth battery powermenu
 
 tray-position = none
 tray-padding = 1
@@ -80,7 +80,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-;format-foreground = #2e3440
+format-foreground = #293136
 format-padding = 3
 
 [module/bspwm]
@@ -97,35 +97,35 @@ fuzzy-match = true
 format = <label-state>
 ;<label-mode>
 
-label-dimmed-foreground = #ffffff
+label-dimmed-foreground = #293136
 
 label-dimmed-occupied = %icon%
-label-dimmed-occupied-foreground = #00eceff4
+label-dimmed-occupied-foreground = #293136
 label-dimmed-occupied-padding = 3
 
 label-dimmed-empty = %icon%
-label-dimmed-empty-foreground = #eceff4
+label-dimmed-empty-foreground = #293136
 label-dimmed-empty-padding = 3
 
 label-focused = %icon%
-label-focused-foreground = #eceff4
+label-focused-foreground = #293136
 label-focused-background = #00eceff4
-label-focused-underline = #CCBB90
+label-focused-underline = #e0d7c4
 label-focused-padding = 3
 
 label-occupied = %icon%
-label-occupied-foreground = #97eceff4
+label-occupied-foreground = #293136
 label-occupied-background= #004C566A
 label-occupied-padding = 3
 
 label-urgent = %icon%
-label-urgent-foreground = #eceff4
-label-urgent-background = #bf616a
+label-urgent-foreground = #293136
+label-urgent-background = #E67E80
 label-urgent-padding = 3
 
 label-empty = %icon%
-label-empty-foreground = #40eceff4
-label-empty-background= #002e3440
+label-empty-foreground = #80293136
+label-empty-background= #00293136
 label-empty-padding = 3
 
 ws-icon-0 = 1;一
@@ -145,19 +145,19 @@ format = <label-mode>
 format-font = 0
 
 label-monocle = Monocle
-label-monocle-foreground = #2e3440
+label-monocle-foreground = #293136
 label-monocle-background = #eceff4
 label-tiled = Tiled
-label-tiled-foreground = #2e3440
+label-tiled-foreground = #293136
 label-tiled-background = #eceff4
 label-fullscreen = Fullscreen
-label-fullscreen-foreground = #2e3440
+label-fullscreen-foreground = #293136
 label-fullscreen-background = #eceff4
 label-floating = Floating
-label-floating-foreground = #2e3440
+label-floating-foreground = #293136
 label-floating-background = #eceff4
 label-pseudotiled = Pseudo
-label-pseudotiled-foreground = #2e3440
+label-pseudotiled-foreground = #293136
 label-pseudotiled-background = #eceff4
 label-locked = " "
 label-locked-foreground = #ffffff
@@ -173,7 +173,7 @@ interval = 2
 click-left = exec blueberry
 click-right = exec ~/.config/polybar/scripts/toggle_bluetooth.sh
 format-padding = 1
-format-background = #922e3440
+format-background = #92293136
 format-foreground = #eceff4
 
 
@@ -184,8 +184,8 @@ exec-if = ping openweathermap.org -c 1
 click-left = exec ~/.config/polybar/scripts/weather.sh
 interval = 600
 label-font = 2
-format-background = #90eceff4
-format-foreground = #2e3440
+format-background = #a5ada9
+format-foreground = #293136
 format-padding = 1
 
 [module/mpd]
@@ -262,11 +262,11 @@ format-font = 5
 interval = 2
 format-padding = 1
 format-prefix = " "
-;format-prefix-foreground = #2e3440
-format-prefix-background = #004C566A
-format-background = #004C566A
+;format-prefix-foreground = #293136
+format-prefix-background = #555F66
+format-background = #555F66
 format = <label>
-;format-foreground = #2e3440
+;format-foreground = #293136
 label = %gb_used%
 
 ; Only applies if <ramp-used> is used
@@ -287,7 +287,7 @@ ramp-used-background = #004c566a
 type = internal/network
 interface = wlan0
 interval = 3.0
-format-connected-background = #972e3440
+format-connected-background = #293136
 format-connected-padding = 1
 
 format-connected = <ramp-signal> <label-connected>
@@ -326,7 +326,7 @@ type = internal/network
 interface = enp5s0
 interval = 3.0
 
-format-connected-background = #972e3440
+format-connected-background = #293136
 format-connected-prefix = "   "
 ;format-connected-prefix-foreground = #99eceff4
 ;format-connected-foreground = #99eceff4
@@ -350,8 +350,8 @@ time = - %A, %d %B | %H:%M -
 time-alt = - %H:%M -
 
 format-prefix = 
-format-prefix-foreground = #2e3440
-;format-foreground = #2e3440
+format-prefix-foreground = #293136
+format-foreground = #293136
 label-font = 1
 label = %date% %time%
 
@@ -372,30 +372,30 @@ label-font = 2
 label-volume = %percentage%%
 label-volume-padding = 1
 label-padding = 1
-;label-volume-foreground = #2e3440
-label-volume-background = #903b4252
-format-ramp-volume-0-background = #903b4252
-format-ramp-volume-1-background = #903b4252
-format-ramp-volume-2-background = #903b4252
+;label-volume-foreground = #293136
+label-volume-background = #434F55
+format-ramp-volume-0-background = #434F55
+format-ramp-volume-1-background = #434F55
+format-ramp-volume-2-background = #434F55
 
 label-muted = muted
 label-muted-foreground = ${colors.foreground}
-label-muted-background = #903b4252
+label-muted-background = #3b4252
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 🔈
 ramp-volume-1 = 🔉
 ramp-volume-2 = 🔊
 
-;ramp-volume-foreground = #2e3440
-ramp-volume-background = #903b4252
+;ramp-volume-foreground = #293136
+ramp-volume-background = #434F55
 ramp-volume-padding = 1
 
 [module/battery]
 type = internal/battery
-format-charging-background = #972e3440
-format-full-background = #972e3440
-format-discharging-background = #972e3440
+format-charging-background = #97293136
+format-full-background = #97293136
+format-discharging-background = #97293136
 format-charging-padding = 1
 ;format-discharging-padding = 1
 format-full-padding = 1
@@ -501,8 +501,8 @@ type = internal/temperature
 interval = 0.5
 hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
 warn-temperature = 70
-;format-foreground = #2e3440
-format-background = #004C566A
+;format-foreground = #293136
+format-background = #555F66
 format-padding = 1
 
 ;<ramp>
@@ -513,20 +513,20 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = #bf616a
-label-warn-background = #004C566A
+label-warn-foreground = #E67E80
+label-warn-background = #555F66
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = #3b4252
-ramp-background = #004C566A
+ramp-background = #555F66
 ramp-padding = 1
 
 [module/powermenu]
 type = custom/menu
-format-background = #902e3440
-format-foreground = #bf616a
+format-background = #293136
+format-foreground = #e0d7c4
 format-padding = 2
 format-font = 5
 
@@ -535,7 +535,7 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = #e06c75
+label-open-foreground = #E67E80
 label-open-margin-right= 2.5
 label-close =  cancel
 label-close-foreground = #e06c75
@@ -574,7 +574,7 @@ margin-bottom = 0
 type = custom/script
 interval = 1
 format-font = 5
-;format-foreground = #90eceff4
+format-foreground = #293136
 format-prefix = "   "
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}  '
@@ -590,31 +590,31 @@ click-middle = playerctl --player=spotify previous
 [module/spc]
 type = custom/text
 content = "%{T8}%{T-}"
-content-foreground = #90eceff4
+content-foreground = #a5ada9
 
 [module/arrow1]
 type = custom/text
 content = "%{T8}%{T-}"
 ;content-foreground = #757b87
-content-foreground = #4e6167
-content-background = #90eceff4
+content-foreground = #555F66
+content-background = #a5ada9
 
 [module/arrow2]
 type = custom/text
 content = "%{T8}%{T-}"
-content-foreground = #903b4252
-content-background = #004C566A
+content-foreground = #434F55
+content-background = #555F66
 
 [module/arrow3]
 type = custom/text
 content = "%{T8}%{T-}"
-content-foreground = #502e3440
-content-background = #903b4252
+content-foreground = #293136
+content-background = #434F55
 
 ;[module/arrowright]
 ;type = custom/text
 ;content = "%{T8}%{T-}"
-;content-foreground = #2e3440
+;content-foreground = #293136
 ;content-background = #eceff4
 
 ;[module/arrowright2]
@@ -627,17 +627,17 @@ content-background = #903b4252
 type = custom/script
 exec = ~/.config/polybar/scripts/battery-combined-udev.sh
 tail = true
-format-charging-background = #902e3440
-format-full-background = #902e3440
-format-discharging-background = #902e3440
+format-charging-background = #90293136
+format-full-background = #90293136
+format-discharging-background = #90293136
 format-charging-padding = 1
 ;format-discharging-padding = 1
 format-full-padding = 1
 
 [module/crypto]
-format-background = #903b4252
+format-background = #434F55
 format-padding = 2
-;format-foreground = #2e3440
+;format-foreground = #293136
 type = custom/script
 interval = 300
 exec = /home/josh/.config/polybar/crypto.py

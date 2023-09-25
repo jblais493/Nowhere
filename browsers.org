@@ -15,3 +15,6 @@ Theme: Everforest Dark
 * Brave - Normie Browser (Soycial media/youtube)
 ** Plugins:
 *** Vimium
+
+* Thunderbird
+** Verdurous Darker Theme

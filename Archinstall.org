@@ -51,6 +51,7 @@ In ~/.config/gtk-3.0/settings.ini:
 gtk-cursor-theme-name=cursor_theme_name
 #+end_src
 
+
 ** Setup Pipewire
 After installing pipewire/pipewire-pulse/pavucontrol
 #+begin_src
@@ -62,3 +63,16 @@ systemctl --user start pipewire-pulse.service
 #+end_src
 
 # Official polybar script for pipewire exists
+
+** Get brillo set up for brightness control
+
+** ZSH setup:
+.oh-my-zsh plugin manager
+clone zsh-autosuggestions and zsh-syntax-highlighting to .oh-my-zsh
+
+
+*** Spicetify
+curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Tetrax-10/Nord-Spotify/master/install-scripts/uninstall.sh | sh
+spicetify config current_theme Nord color_scheme Spotify
+spicetify apply

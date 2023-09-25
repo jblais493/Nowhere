@@ -163,7 +163,7 @@ alt + w
 
 # Print Screen 
 Print
-    gnome-screenshot -i   
+    scrot -s -d 1
 
 # Qutebrowser
 alt + c
