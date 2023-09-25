@@ -1,0 +1,64 @@
+* Installation
+** Iwctl device connect SSID
+** Make sure you install networkmanager
+
+
+* Install packages in packages.txt
+
+
+* Housekeeping
+** Setup parallel downloads:
+sudo nvim /etc/pacman.conf
+#+begin_src
+uncomment color
+ParallelDownloads = 8
+#+end_src
+
+** Install Yay
+#+begin_src
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+#+end_src
+*** Makeflags in /etc/makepkg.conf
+#+begin_src
+MAKEFLAGS="-j$(nproc)"
+#+end_src
+
+
+** Get touchpad working
+In /etc/X11/xorg.conf.d/30-touchpad.conf:
+#+begin_src
+ Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lmr"
+EndSection
+#+end_src
+
+** Change cursor theme
+In ~/.icons/default/index.theme:
+#+begin_src
+[icon theme]
+Inherits=cursor_theme_name
+#+end_src
+
+In ~/.config/gtk-3.0/settings.ini:
+#+begin_src
+[Settings]
+gtk-cursor-theme-name=cursor_theme_name
+#+end_src
+
+** Setup Pipewire
+After installing pipewire/pipewire-pulse/pavucontrol
+#+begin_src
+systemctl --user enable pipewire.service
+systemctl --user start pipewire.service
+
+systemctl --user enable pipewire-pulse.service
+systemctl --user start pipewire-pulse.service
+#+end_src
+
+# Official polybar script for pipewire exists

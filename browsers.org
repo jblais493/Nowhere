@@ -1,0 +1,17 @@
+#+title: Browsers
+
+Theme: Everforest Dark
+
+* Firefox Developer Edition - Development and normal browsing
+** Plugins:
+*** uMatrix
+*** Vimium FF
+*** Decentraleyes
+*** Custom New Tab Page
+
+* Qutebrowser - Normal browsing
+** Greasemonkey scripts
+
+* Brave - Normie Browser (Soycial media/youtube)
+** Plugins:
+*** Vimium
