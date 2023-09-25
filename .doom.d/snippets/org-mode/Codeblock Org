@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Codeblock Org
+# key: cb
+# --
+
+#+BEGIN_SRC bash
+${1: code}
+#+END_SRC
