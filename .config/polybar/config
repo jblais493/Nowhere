@@ -21,7 +21,7 @@ fixed-center = true
 enable-ipc = true
 
 background = #004C566A
-foreground = #a5ada9
+foreground = #B7BDBA
 
 line-size = 3
 ;line-color = #f00
@@ -184,7 +184,7 @@ exec-if = ping openweathermap.org -c 1
 click-left = exec ~/.config/polybar/scripts/weather.sh
 interval = 600
 label-font = 2
-format-background = #a5ada9
+format-background = #B7BDBA
 format-foreground = #293136
 format-padding = 1
 
@@ -590,14 +590,14 @@ click-middle = playerctl --player=spotify previous
 [module/spc]
 type = custom/text
 content = "%{T8}%{T-}"
-content-foreground = #a5ada9
+content-foreground = #B7BDBA
 
 [module/arrow1]
 type = custom/text
 content = "%{T8}%{T-}"
 ;content-foreground = #757b87
 content-foreground = #555F66
-content-background = #a5ada9
+content-background = #B7BDBA
 
 [module/arrow2]
 type = custom/text
