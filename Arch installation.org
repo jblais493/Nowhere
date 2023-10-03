@@ -1,0 +1,258 @@
+#+title: Arch Installation
+
+
+* 1. Install to USB drive
+
+#+begin_src
+sudo dd if=arch.iso of=/dev/sdX status=progress bs=4M
+#+end_src
+
+* Presetup:
+** Connect to wifi:
+*** With connman:
+#+begin_src
+sudo rfkill unblock wifi
+connmanctl
+agent on
+scan wifi
+services
+connect wifi_name
+exit
+#+end_src
+
+*** with iwctl:
+#+begin_src
+Iwctl device connect SSID
+#+end_src
+
+** Check if uefi or bios
+#+begin_src
+ls /sys/firmware/efi/efivars
+#+end_src
+
+if nothing - you are not using efi, if you do get a message the system is uefi
+
+** Create partitions:
+*** create them
+#+begin_src
+fdisk /dev/sdX
+
+delete all partitions
+
+create new partitiions:
+first partition of 1G for boot
+second partition for rest of system
+write that in fdisk
+#+end_src
+
+*** create file systems on partitions
+#+begin_src
+mkfs.fat -F32 /dev/sdX1
+cryptsetup luksFormat /dev/sdX2
+
+cryptsetup open /dev/sdX2 whatever
+
+mkfs.btrfs /dev/mapper whatever
+mount /dev/mapper/whatever /mnt
+mkdir /mnt/boot
+mount /dev/sdX1 /mnt/boot
+#+end_src
+
+**  Installation
+*** nvim /etc/pacman.d/mirrorlist and move up mirrors of your country to the top
+*** Install basic packages: basestrap or pacstrap:
+#+begin_src for runit:
+basestrap -i /mnt base base-devel runit elogind-runit lunux linux-firmware grub networkmanager networkmanager-runit cryptsetup lvm2 lvm2-runit neovim vim
+
+*IF UEFI: ADD efibootmgr
+#+end_src
+*** chroot into system:
+#+begin_src
+artix-chroot /mnt bash
+ln -s /usr/share/zoneinfo/America/Edmonton /etc/localtime
+hwclock --systohc
+#+end_src
+
+In /etc/locale.conf
+#+begin_src
+export LANG="en_US.UTF-8"
+export LC_COLLATE="C"
+#+end_src
+
+in /etc/locale.gen:
+*uncomment the encodings:
+#+begin_src
+en_US.UTF-8
+en_US ISO-8859
+#+end_src
+
+run:
+#+begin_src
+locale-gen
+#+end_src
+
+*** Name computer:
+#+begin_src
+echo "nameofcomputer" > /etc/hostname
+#+end_src
+
+*** In /etc/hosts
+#+begin_src
+127.0.0.1        localhost
+::1              localhost
+127.0.0.1        nameofcomputer.localdomain nameofcomputer
+#+end_src
+
+*** enable wifi/internet on boot:
+#+begin_src: runit
+ln -s /etc/runit/sv/NetworkManager /etc/runit/runsvdir/current
+#+end_src
+
+#+begin_src systemd
+systemctl start NetworkManager.service
+systemctl enable NetworkManager.service
+#+end_src
+
+*** Password:
+#+begin_src
+passwd
+#+end_src
+
+*** Create user:
+#+begin_src
+useradd -G wheel -m josh
+passwd josh
+#+end_src
+
+*** If you want user auto logged in upon decryption of drive:
+#+begin_src   in /etc/runit/sv/agetty-tty1/conf add to GETTY_ARGS
+--autologin josh
+#+end_src
+
+**  Decryption:
+in /etc/mkinitcpio.conf:
+#+begin_src
+HOOKS=   add "encrypt lvm2"
+#+end_src
+Then run: mkinitcpio -p linux
+
+** for Grub:
+#+begin_src
+lsblk -f >> /mnt/etc/default/grub
+fstabgen -U /mnt >> /mnt/etc/fstab
+#+end_src
+
+
+* First installation
+
+** Add user to root wheel group:
+#+begin_src
+su root
+add your user to the /etc/sudoers file
+#+end_src
+
+** Setup parallel downloads:
+sudo nvim /etc/pacman.conf
+#+begin_src
+uncomment color
+ParallelDownloads = 8
+#+end_src
+
+#+begin_src
+sudo pacman -S picom polybar bspwm sxhkd rofi pass arandr alacritty wget curl git emacs firefox qutebrowser neofetch upower tlp powertop zsh tmux zathura emacs xorg-xinit xorg-xrandr xorg xclip
+#+end_src
+
+** Install Yay:
+#+begin_src
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+#+end_src
+*** Makeflags in /etc/makepkg.conf
+#+begin_src
+MAKEFLAGS="-j$(nproc)"
+#+end_src
+
+** Get touchpad working
+In /etc/X11/xorg.conf.d/30-touchpad.conf:
+#+begin_src
+ Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lmr"
+EndSection
+#+end_src
+
+** Change cursor theme
+In ~/.icons/default/index.theme:
+#+begin_src
+[icon theme]
+Inherits=cursor_theme_name
+#+end_src
+
+In ~/.config/gtk-3.0/settings.ini:
+#+begin_src
+[Settings]
+gtk-cursor-theme-name=cursor_theme_name
+#+end_src
+
+** Setup Pipewire
+After installing pipewire/pipewire-pulse/pavucontrol
+#+begin_src
+systemctl --user enable pipewire.service
+systemctl --user start pipewire.service
+
+systemctl --user enable pipewire-pulse.service
+systemctl --user start pipewire-pulse.service
+#+end_src
+
+# Official polybar script for pipewire exists
+
+** Get brillo set up for brightness control
+** Fix polybar/bspwm files to reflect monitor name
+** Fix rofi sizing
+** ZSH setup:
+.oh-my-zsh plugin manager
+clone zsh-autosuggestions and zsh-syntax-highlighting to .oh-my-zsh
+*** Spicetify
+curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Tetrax-10/Nord-Spotify/master/install-scripts/uninstall.sh | sh
+spicetify config current_theme Nord color_scheme Spotify
+spicetify apply
+
+* Artix specific:
+** Repos:
+Add in /etc/pacman.conf:
+#+begin_src
++ [universe]
++ Server = https://universe.artixlinux.org/$arch
++ Server = https://mirror1.artixlinux.org/universe/$arch
++ Server = https://mirror.pascalpuffke.de/artix-universe/$arch
++ Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/$arch
++ Server = https://mirror1.cl.netactuate.com/artix/universe/$arch
++ Server = https://ftp.crifo.org/artix-universe/$arch
++ Server = https://artix.sakamoto.pl/universe/$arch
+#+end_src
+
+sync:
+#+begin_src
+sudo pacman -Sy
+#+end_src
+
+Install artix-archlinux-support
+
+And add in /etc/pacman.conf:
+#+begin_src
+[extra]
+Include = /etc/pacman.d/mirrorlist-arch
+
+[community]
+Include = /etc/pacman.d/mirrorlist-arch
+#+end_src
+
+#+begin_src
+sudo pacman-key --populate archlinux
+sudo pacman -Sy
+#+end_src

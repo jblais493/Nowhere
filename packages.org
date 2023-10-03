@@ -31,6 +31,14 @@ flac
 fzf
 gajim
 ghostscript
+neomutt
+abook
+notmuch
+lynx
+isync
+msmtp
+ca-certificates
+gettext
 gimp
 git
 github-cli
