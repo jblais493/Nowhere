@@ -99,11 +99,11 @@ ctrl + shift + j
 
 # Brightness Up
 XF86MonBrightnessUp
-    xbacklight -inc 10
+    brillo -A 10
 
 # Brightness Down
 XF86MonBrightnessDown
-    xbacklight -dec 10
+    brillo -U 10
 
 #######################################
 #       Rofi Controls                 #
@@ -118,7 +118,7 @@ alt + u
 
 # Thunderbird
 alt + m
-    thunderbird
+    alacritty -e neomutt 
 
 # Run rofi pass
 alt + p
@@ -136,9 +136,13 @@ alt + r
 alt + o 
     alacritty -e fzf
 
-# Newsboat RSS Reader 
+# Make Notes
+alt + N
+    emacs /mnt/TrueNAS/org/notes.org
+
+# todo
 alt + n
-    alacritty -e newsboat
+    emacs /mnt/TrueNAS/org/todo.org
 
 #######################################
 #       Program Specific Controls     #
@@ -154,12 +158,11 @@ alt + e
 
 # my homepage
 alt + y
-    brave joshblais.com &
+    firefox joshblais.com &
 
-# Brave 
+# Browser
 alt + w 
-    brave 
-
+    firefox-developer-edition
 
 # Print Screen 
 Print
@@ -202,7 +205,6 @@ alt + b
 # Song info for EMMS
 ctrl + shift + i
     $HOME/.config/scripts/music-player-client show
-
 
 # Spotify Next
 ctrl + shift + l
