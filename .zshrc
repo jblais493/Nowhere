@@ -13,6 +13,8 @@ export PATH="$PATH:/home/josh/Shared/Development/flutter/bin"
 #export PATH="Android/bin: $PATH"
 export CHROME_EXECUTABLE=/usr/bin/chromium
 export PATH=$PATH:~/.local/bin/
+#scripts
+export PATH=$PATH:~/.config/scripts
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/josh/.oh-my-zsh"
@@ -120,12 +122,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# better yaourt colors
-export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-
-# added by Anaconda3 installer
-export PATH="/home/josh/anaconda3/bin:$PATH"
 
 # autosuggestions
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -135,15 +131,15 @@ export PATH="$PATH:$HOME/go/bin"
 
 # Alias 2023
 alias py="python"
-alias elf="sudo nvim /usr/local/bin/lf-ueberzug/lf-ueberzug"
 alias lf="/usr/local/bin/lf-ueberzug/lf-ueberzug"
 alias p="sudo pacman"
-alias r='lf'
+alias r='lfcd'
 alias nit='nitrogen ~/Pictures'
 alias ytd='yt-dlp'
 alias ytmp3="yt-dlp -f 'ba'"
 alias src="source ~/.zshrc"
 alias ezsh="nvim ~/.zshrc"
+alias sd='cd ~ && cd "$(find * /mnt/TrueNAS -type d | fzf)"'
 
 # Navigation
 alias dev="cd ~/Development"
@@ -154,7 +150,6 @@ alias writing="cd /mnt/TrueNAS/org/roam/Writing"
 alias notes="cd /mnt/TrueNAS/Notes"
 alias photos="cd /mnt/TrueNAS/Photos"
 alias intbackup="cd /mnt/TrueNAS/InternetBackup"
-alias books="cd ~/.config/scripts/bookmarks"
 alias f="thunar . &"
 alias revere="cd /mnt/TrueNAS/Revere"
 alias revereb="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage"
@@ -179,18 +174,17 @@ alias rsx="redshift -x"
 alias pg="pass generate"
 alias pe="pass edit"
 alias v="nvim"
-alias sd="spotdl"
+alias spd="spotdl"
 alias syncvault="rsync -avz --delete /mnt/TrueNAS/ /mnt/Vault/TrueNAS"
 alias syncnas="rsync -avz --delete /mnt/TrueNAS/ /mnt/External4TB/TrueNAS"
 alias mntnas="sudo mount -t nfs -o soft,intr,bg 172.18.250.9:/mnt/Home/Homedata/josh /mnt/TrueNAS"
-alias mntexternal="sudo mount /dev/sde1 /mnt/External4TB"
+alias mntexternal="sudo mount /dev/sdb1 /mnt/External4TB"
 alias mntvault="sudo mount /dev/sda /mnt/Vault"
 alias doomsync="~/.emacs.d/bin/doom sync"
 alias doomrefresh="~/.emacs.d/bin/doom refresh"
 alias reverecalc="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Systems/Programs/Calculators && python ConveyancingOutput.py"
 alias buyercalc="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Systems/Programs/Calculators && python BuyerCommissionCalc.py"
 alias record="arecord -f cd output.wav"
-alias sA="~/.config/scripts/scrotArea"
 alias anime="~/.config/scripts/ani-cli/ani-cli"
 alias brodirs="mkdir 'Brokerage Documents' 'Offer' 'Conveyancing' 'Payout' 'Posts'"
 alias newpost="gimp /mnt/TrueNAS/Revere/Revere\ LATEST/Marketing/POSTS/Templates/2022\ IG\ Template\ NEW\ LISTING.xcf"
@@ -201,6 +195,7 @@ alias convey="nvim /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/CONVEYANCING/Inf
 alias twit="gimp /mnt/TrueNAS/Personal/Twitter.xcf"
 alias tw="cd ~/Development/SocialPosts && python tweet.py"
 alias strip="mogrify -strip"
+alias nm="neomutt"
 
 # Networking
 alias nmconnect="nmcli device wifi connect"
@@ -227,6 +222,18 @@ alias ta="tmux attach -t"
 alias tsf="tmux source-file ~/.tmux.conf"
 alias tl="tmux ls"
 alias tk="tmux kill-session -a"
+
+# config files
+alias polybar="nvim ~/.config/polybar/config"
+alias bspwm="nvim ~/.config/bspwm/bspwmrc"
+alias sxhkd="nvim ~/.config/sxhkd/sxhkdrc"
+alias dunst="nvim ~/.config/dunst/dunstrc"
+alias rofi="nvim ~/.config/rofi/config.rasi"
+alias qutebrowser="cd ~/.config/qutebrowser"
+alias shell="cd ~/.config/shell"
+alias scripts="cd ~/.config/scripts"
+alias books="cd ~/.config/scripts/bookmarks"
+alias elf="sudo nvim /usr/local/bin/lf-ueberzug/lf-ueberzug"
 
 # SSH
 alias sshjosh="ssh root@159.203.18.59"
