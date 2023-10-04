@@ -1,0 +1,2 @@
+#!/bin/bash
+zsh -i -c 'source ~/.zshrc; sd; zsh'
