@@ -26,7 +26,7 @@ everforest-gtk-theme-git
 feh
 ffmpeg
 file
-firefox-developer-edition
+firefox-developer-edition-arkenfox-autoconfig
 flac
 fzf
 gajim
