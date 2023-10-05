@@ -233,6 +233,7 @@ alias qutebrowser="cd ~/.config/qutebrowser"
 alias shell="cd ~/.config/shell"
 alias scripts="cd ~/.config/scripts"
 alias books="cd ~/.config/scripts/bookmarks"
+alias embm="cp ~/.config/scripts/bookmarks/emacsbookmarks ~/.emacs.d/.local/etc/bookmarks"
 alias elf="sudo nvim /usr/local/bin/lf-ueberzug/lf-ueberzug"
 
 # SSH
