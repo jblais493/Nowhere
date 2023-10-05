@@ -57,6 +57,7 @@ imagemagick
 less
 lf
 libreoffice
+magic-wormhole
 monero
 monero-gui
 montserrat-ttf
