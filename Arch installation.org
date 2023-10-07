@@ -134,7 +134,11 @@ in /etc/mkinitcpio.conf:
 #+begin_src
 HOOKS=   add "encrypt lvm2"
 #+end_src
-Then run: mkinitcpio -p linux
+
+Then run:
+#+begin_src
+mkinitcpio -p linux
+#+end_src
 
 ** for Grub:
 #+begin_src

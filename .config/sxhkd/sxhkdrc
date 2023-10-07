@@ -128,13 +128,8 @@ alt + p
 super + space 
     exec rofi  -show find -modi find:/mnt/TrueNAS;
 
-# Ffox Dev 
-alt + r
-    firefox-developer-edition
-
-
 alt + o 
-    alacritty -e fzf
+    alacritty -e ~/.config/scripts/runfzf
 
 # Make Notes
 alt + N
@@ -180,9 +175,20 @@ alt + d
 alt + i 
     signal-desktop
 
-# opens up Audacity
-alt + a 
-    alacritty -e {arecord -f cd output.wav}
+# records audio 
+super + a 
+    ~/.config/scripts/audiorecord
+
+# start webcam
+super + v 
+    ~/.config/scripts/webcam
+
+# start screencast 
+super + r 
+    ~/.config/scripts/screencast
+
+super + shift + r
+    pkill ffmpeg
 
 # opens up gimp
 alt + g 
