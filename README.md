@@ -21,5 +21,5 @@ Core Services:
 Fonts:
 
 ```
-   yay -S nerd-fonts-jetbrains-mono ttf-weather-icons ttf-sarasa-gothic ttf-font-awesome ttf-material-design-icons montserrat-ttf otf-powerline-symbols-git neovim-airline vim-airline-themes noto-fonts-emoji
+   yay -S ttf-sourcecodepro-nerd ttf-weather-icons ttf-sarasa-gothic ttf-font-awesome ttf-material-design-icons montserrat-ttf otf-powerline-symbols-git neovim-airline vim-airline-themes noto-fonts-emoji
 ```
