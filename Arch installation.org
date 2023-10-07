@@ -140,10 +140,26 @@ Then run:
 mkinitcpio -p linux
 #+end_src
 
-** for Grub:
+** Exit the chroot and run:
 #+begin_src
 lsblk -f >> /mnt/etc/default/grub
+
+# on artix:
 fstabgen -U /mnt >> /mnt/etc/fstab
+# on arch:
+genfstab -U /mnt >> /mnt/etc/fstab
+#+end_src
+
+** Chroot back into your installation and into /etc/default/grub:
+Go to bottom of file, and take the two uuid's from your partition to the top of file and comment them out
+#+begin_src
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=asdfasdfasdf-asdfasdf-asdfasdf:cryptlvm root=UUID=asdfasdf-asdfasd-sadfasdf"
+#+end_src
+
+*** Install grub
+#+begin_src
+grub-install /dev/sdX
+grub-mkconfig -o /boot/grub/grub.cfg
 #+end_src
 
 
