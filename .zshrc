@@ -237,8 +237,6 @@ alias embm="cp ~/.config/scripts/bookmarks/emacsbookmarks ~/.emacs.d/.local/etc/
 alias elf="sudo nvim /usr/local/bin/lf-ueberzug/lf-ueberzug"
 
 # SSH
-alias sshjosh="ssh root@159.203.18.59"
-alias sshbastion="ssh -i .ssh/jumpbox.key josh@45.63.39.67"
 
 bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
