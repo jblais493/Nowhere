@@ -1,5 +1,6 @@
 #+title: Packages
 
+abook
 aspell
 aspell-en
 audacity
@@ -12,6 +13,7 @@ bluez-tools
 bluez-utils
 breeze-snow-cursor-theme
 bspwm
+ca-certificates
 clang
 cmake
 coreutils
@@ -23,6 +25,7 @@ downgrade
 dunst
 emacs
 everforest-gtk-theme-git
+fancontrol
 feh
 ffmpeg
 file
@@ -30,15 +33,8 @@ firefox-developer-edition-arkenfox-autoconfig
 flac
 fzf
 gajim
-ghostscript
-neomutt
-abook
-notmuch
-lynx
-isync
-msmtp
-ca-certificates
 gettext
+ghostscript
 gimp
 git
 github-cli
@@ -54,18 +50,22 @@ hunspell-en_ca
 hwinfo
 i3lock-color
 imagemagick
+isync
 less
 lf
 libreoffice
+lynx
 magic-wormhole
 monero
 monero-gui
 montserrat-ttf
 mpv
+msmtp
 mu
 mu-wizard-git
 ncurses
 neofetch
+neomutt
 neovim
 neovim-airline
 neovim-everforest-git
@@ -78,6 +78,7 @@ nilfs-utils
 nitrogen
 nmap
 nodejs
+notmuch
 noto-fonts-emoji
 npm
 ntfs-3g
@@ -95,6 +96,7 @@ poppler
 postgresql
 postgresql-libs
 powertop
+pwmconfig
 python
 python-adblock
 python-spotdl
