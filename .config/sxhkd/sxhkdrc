@@ -118,7 +118,7 @@ alt + u
 
 # Thunderbird
 alt + m
-    alacritty -e neomutt 
+    thunderbird
 
 # Run rofi pass
 alt + p
@@ -157,7 +157,7 @@ alt + y
 
 # Browser
 alt + w 
-    firefox-developer-edition
+    firefox
 
 # Print Screen 
 Print
@@ -176,7 +176,7 @@ alt + i
     signal-desktop
 
 # records audio 
-super + a 
+super + h
     ~/.config/scripts/audiorecord
 
 # start webcam
@@ -184,10 +184,10 @@ super + v
     ~/.config/scripts/webcam
 
 # start screencast 
-super + r 
+super + shift + r 
     ~/.config/scripts/screencast
 
-super + shift + r
+super + shift + k
     pkill ffmpeg
 
 # opens up gimp
