@@ -146,6 +146,8 @@ alias dl="cd ~/Downloads"
 alias dev="cd ~/Development"
 alias biz="cd /mnt/TrueNAS/Business"
 alias org="cd ~/mnt/TrueNAS/org"
+alias godir="cd ~/go/src/"
+alias gop="cd ~/go/src/github.com/jblais493/EchoBoilerplate"
 alias comp="cd ~/Shared/Documents/Computers"
 alias writing="cd /mnt/TrueNAS/org/roam/Writing"
 alias notes="cd /mnt/TrueNAS/Notes"
@@ -156,7 +158,7 @@ alias revere="cd /mnt/TrueNAS/Revere"
 alias revereb="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage"
 alias commer="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Deals/2023/Commercial"
 alias sellers="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Deals/2022/Sellers"
-alias buyers="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Deals/2022/Buyers"
+alias buyers="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Deals/2023/Buyers"
 alias revsys="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Systems"
 alias nas="cd /mnt/TrueNAS"
 alias media="cd /mnt/TrueNAS/media"
@@ -215,6 +217,7 @@ alias payout="gimp /mnt/TrueNAS/Revere/Revere\ LATEST/Systems/Templates/Invoicin
 alias payoutBobby="gimp /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Agents/Paystubs/Paystub\ -\ Bobby\ Kriangkum.xcf"
 alias payoutCody="gimp /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Agents/Paystubs/Paystub\ -\ Cody\ Serediak.xcf"
 alias payoutSeth="gimp /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Agents/Paystubs/Paystub\ -\ Seth\ Macdonald.xcf"
+alias payoutChris="gimp /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage/Alberta/Edmonton/Agents/Paystubs/Paystub\ -\ Chris\ Gavigan.xcf"
 alias cinst="gimp /mnt/TrueNAS/Revere/Revere\ LATEST/Systems/Conveyancing/Templates/Conveyancing\ Instructions\ Template.xcf"
 
 # Tmux commands
@@ -237,9 +240,6 @@ alias books="cd ~/.config/scripts/bookmarks"
 alias embm="cp ~/.config/scripts/bookmarks/emacsbookmarks ~/.emacs.d/.local/etc/bookmarks"
 alias elf="sudo nvim /usr/local/bin/lf-ueberzug/lf-ueberzug"
 
-# SSH
-alias sshjosh="ssh root@159.203.18.59"
-alias sshbastion="ssh -i .ssh/jumpbox.key josh@45.63.39.67"
 
 bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
